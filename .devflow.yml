@@ -1,0 +1,33 @@
+stack:
+  nginx:
+    index: index.php
+
+  php:
+    version: 5.6
+    modules:
+      - curl
+      - gd
+      - intl
+      - mbstring
+      - mcrypt
+      - hash
+      - openssl
+      - pdo_mysql
+      - soap
+      - xml
+      - xsl
+      - zip
+    ini:
+      - always_populate_raw_post_data=-1
+
+  mysql:
+    version: 5.6
+    user: magento
+    password: magento
+    databases:
+      - magento
+
+deployment:
+  install:
+    - composer install --prefer-dist --no-interaction --optimize-autoloader
+    - chown -R www-data:www-data var app/etc pub/media pub/static

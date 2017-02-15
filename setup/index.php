@@ -24,7 +24,11 @@ HTML;
     exit(1);
 }
 
-// For Setup Wizard we are using our customized error handler
+
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+    $_SERVER['HTTPS'] = 'on';
+    $_SERVER['SERVER_PORT'] = 443;
+}// For Setup Wizard we are using our customized error handler
 $handler = new \Magento\Framework\App\ErrorHandler();
 set_error_handler([$handler, 'handler']);
 

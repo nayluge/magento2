@@ -10,7 +10,6 @@ stack:
       - intl
       - mbstring
       - mcrypt
-#      - mhash
       - hash
       - openssl
       - pdo_mysql
@@ -18,9 +17,11 @@ stack:
       - xml
       - xsl
       - zip
+    ini:
+      - always_populate_raw_post_data=-1
 
   mysql:
-    version: 5.5
+    version: 5.6
     user: magento
     password: magento
     databases:
@@ -29,5 +30,4 @@ stack:
 deployment:
   install:
     - composer install --prefer-dist --no-interaction --optimize-autoloader
-    - chown -R :www-data .
-    - find . -type d -exec chmod 755 {} \; && sudo find . -type f -exec chmod 644 {} \; && sudo chmod u+x bin/magento; sudo chmod -R g+w ./{pub,var}; sudo chmod -R g+s ./{pub,var}
+    - chown -R www-data:www-data var app/etc pub/media pub/static

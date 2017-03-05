@@ -17,6 +17,8 @@ stack:
       - xml
       - xsl
       - zip
+    ini:
+      - always_populate_raw_post_data=-1
 
   mysql:
     version: 5.6

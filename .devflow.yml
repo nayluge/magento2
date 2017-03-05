@@ -3,7 +3,7 @@ stack:
     index: index.php
 
   php:
-    version: 5.6
+    version: 7.0
     modules:
       - curl
       - gd
@@ -17,8 +17,6 @@ stack:
       - xml
       - xsl
       - zip
-    ini:
-      - always_populate_raw_post_data=-1
 
   mysql:
     version: 5.6

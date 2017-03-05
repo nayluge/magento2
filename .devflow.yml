@@ -1,5 +1,6 @@
 stack:
   nginx:
+    document_root: /
     index: index.php
 
   php:
